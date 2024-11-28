@@ -10,6 +10,7 @@ namespace project_final.characters
     {
         public Paladin() : base()
         {
+            _name = "defaltPaladin";
             _hp = 95;
             _maxhp = _hp;
             _ap = 40;

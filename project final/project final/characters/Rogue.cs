@@ -10,6 +10,7 @@ namespace project_final.characters
     {
         public Rogue() : base()
         {
+            _name = "defaltRogue";
             _hp = 80;
             _maxhp = _hp;
             _ap = 0;

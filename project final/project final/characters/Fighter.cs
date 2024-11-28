@@ -9,13 +9,14 @@ namespace project_final.characters
 {
     internal class Fighter : Characters
     {
-        public Fighter(string name, int hp, int ap, int ad, int armor, double dodge, double ward) : base(name, hp, ap, ad, armor, dodge, ward)
+        public Fighter(string name, int hp, int ap, int ad, int speed, double dodge, double ward) : base(name, hp, ap, ad, speed, dodge, ward)
         {
 
         }
         public Fighter() : base()
         {
-            
+            _name = "defaltFiter";
+            _type = (int)_armor.Plate;
             _hp = 100;
             _maxhp=_hp;
             _ap = 0;
@@ -35,11 +36,6 @@ namespace project_final.characters
         }
         public void defend(int damages, bool ismagic) 
         {
-            if (ismagic)
-            {
-                
-            }
-
         }
         public void pasive()
         {

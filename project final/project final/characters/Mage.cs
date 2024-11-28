@@ -11,10 +11,12 @@ namespace project_final.characters
         public int _bariercount {  get; set; }
         public Mage() : base()
         {
+            _name = "defaltFiter";
             _hp = 60;
             _maxhp = _hp;
             _ap = 75;
             _ad = 0;
+            _speed = 0;
             _dodge = 5;
             _ward = 5;
             _MagicResist = 25;
@@ -26,27 +28,6 @@ namespace project_final.characters
         public void FrostBarier()
         {
             _bariercount = 2;
-        }
-        public void defend(double damages, bool ismagic)
-        {
-            if (_bariercount > 0)
-            {
-                _bariercount--;
-                if (ismagic)
-                {
-                    damages = damages * 0.6;
-                }
-                else
-                {
-                    damages = damages * 0.5;
-                }
-
-            }
-            if (ismagic)
-            {
-
-            }
-
         }
     }
 }
