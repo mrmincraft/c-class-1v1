@@ -33,15 +33,15 @@ namespace project_final.characters
         }
         public void Evasion()
         {
-            if (_dodge > 50 || _ward > 50)
+            if (_dodge > 50 || _MagicResist > 50)
             {
                 Console.WriteLine("you are ass quick as it gets");
             }
             else
             {
-                _ward = +20;
+                _MagicResist = +20;
                 _dodge = +20;
-                if (_ward > 50) { _ward = 50; }
+                if (_MagicResist > 50) { _MagicResist = 50; }
                 if (_dodge > 50) { _dodge = 50; }
             }
         }

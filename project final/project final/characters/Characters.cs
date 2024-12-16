@@ -15,7 +15,6 @@ namespace project_final.characters
         public int _maxhp { get; set; }
         public int _ap { get; set; }
         public int _ad {  get; set; }
-        public int _MagicResist { get; set; }
         public int _bariercount { get; set; }
         public enum _Tarmor
         {
@@ -27,8 +26,10 @@ namespace project_final.characters
         public _Tarmor _armor {  get; set; }
         public int _speed { get; set; }
         public double _dodge { get; set; }
+        public double _MagicResist { get; set; }
         public double _ward { get; set; }
-        public Characters(string name, int hp, int ap, int ad, int speed, double dodge, double ward,_Tarmor armor)
+
+        public Characters(string name, int hp, int ap, int ad, int speed, double dodge,double mr, double ward,_Tarmor armor)
         { 
             _name = name;
             _hp = hp;
@@ -39,6 +40,7 @@ namespace project_final.characters
             _dodge = dodge;
             _ward = ward;
             _armor = armor;
+            _MagicResist = mr;
             _bariercount = 0;
 
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using project_final.characters;
 
 namespace project_final.combat_system
 {
@@ -14,7 +15,7 @@ namespace project_final.combat_system
         public bool _ingroreArmor { get; set; }
         public int _target {  get; set; }
         public int _sender {  get; set; }
-        public Attack(string name, int dmg, bool Magic, bool pirsing, int target, int sender) 
+        public Attack(string name, int dmg, bool Magic, bool pirsing, Characters target, int sender) 
         { 
             _damage = dmg;
             _isMagic = Magic;

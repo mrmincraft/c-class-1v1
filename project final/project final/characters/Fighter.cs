@@ -9,7 +9,7 @@ namespace project_final.characters
 {
     internal class Fighter : Characters
     {
-        public Fighter(string name, int hp, int ap, int ad, int speed, double dodge, double ward,_Tarmor armor ) : base(name, hp, ap, ad, speed, dodge, ward, armor)
+        public Fighter(string name, int hp, int ap, int ad, int speed, double dodge, double mr, double ward,_Tarmor armor ) : base(name, hp, ap, ad, speed, dodge, mr, ward, armor)
         {
 
         }
