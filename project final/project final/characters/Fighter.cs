@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project_final.combat_system;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -27,9 +28,10 @@ namespace project_final.characters
             _bariercount = 0;
 
         }
-        public void HeroImpact(Characters target )
+        public Attack HeroImpact(Characters target )
         {
-            target.defend(_ad, false);
+            Attack HeroImpact = new Attack("hero impact",_ad,false,false,target,this);
+            return HeroImpact;
         }
         public void WarCry() 
         {

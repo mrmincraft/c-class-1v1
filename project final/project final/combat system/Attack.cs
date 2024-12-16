@@ -13,9 +13,9 @@ namespace project_final.combat_system
         public int _damage {  get; set; }
         public bool _isMagic {  get; set; }
         public bool _ingroreArmor { get; set; }
-        public int _target {  get; set; }
-        public int _sender {  get; set; }
-        public Attack(string name, int dmg, bool Magic, bool pirsing, Characters target, int sender) 
+        public Characters _target {  get; set; }
+        public Characters _sender {  get; set; }
+        public Attack(string name, int dmg, bool Magic, bool pirsing, Characters target, Characters sender) 
         { 
             _damage = dmg;
             _isMagic = Magic;

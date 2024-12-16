@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using project_final.combat_system;
 
 namespace project_final.characters
 {
@@ -49,79 +50,84 @@ namespace project_final.characters
             _name = "Charbase";
 
         }
-        public void attack (Characters target) 
+        public void defend(int damage, bool ismagic, bool ispirsing, Characters instigator ) 
         {
-            
-            target.defend(0,false);
-        }
-        public void defend(int damage, bool ismagic) 
-        {
-            if (_bariercount > 0)
+            if (ispirsing)
             {
-                Console.WriteLine("had barier");
-                _bariercount--;
-                if (ismagic)
-                {
-                    damage = (int) (damage * 0.6);
-                }
-                else
-                {
-                    damage = (int) (damage * 0.5);
-                }
-
-            }
-            double mr = 0;
-            double pr = 0;
-            switch (_armor)
-            {
-                case _Tarmor.Plate:
-                    pr = 0.45;
-                    break;
-                case _Tarmor.ChainMail:
-                    pr = 0.3;
-                    mr = 0.1;
-                    break;
-                case _Tarmor.Leather:
-                    pr = 0.15;
-                    mr = 0.2;
-                    break;
-                case _Tarmor.Cloth:
-                    mr = 0.3;
-                    break;
-            }
-            if (ismagic)
-            {
-                if (RNG(_MagicResist))
-                {
-                    Console.WriteLine("attack nulified");
-                    this.damage(0);
-                    return; 
-                }
-                damage = (int)(damage * (1 - mr));
-                this.damage(damage);
+                Console.WriteLine("the attack piersed your defences");
+                this.damage(damage,instigator);
+                fightback(damage);
                 return;
+
             }
             else
             {
-                if (RNG(_dodge))
+                if (_bariercount > 0)
                 {
-                    Console.WriteLine("attack doged");
-                    this.damage(0);
+                    Console.WriteLine("had barier");
+                    _bariercount--;
+                    if (ismagic)
+                    {
+                        damage = (int)(damage * 0.6);
+                    }
+                    else
+                    {
+                        damage = (int)(damage * 0.5);
+                    }
+
+                }
+                double mr = 0;
+                double pr = 0;
+                switch (_armor)
+                {
+                    case _Tarmor.Plate:
+                        pr = 0.45;
+                        break;
+                    case _Tarmor.ChainMail:
+                        pr = 0.3;
+                        mr = 0.1;
+                        break;
+                    case _Tarmor.Leather:
+                        pr = 0.15;
+                        mr = 0.2;
+                        break;
+                    case _Tarmor.Cloth:
+                        mr = 0.3;
+                        break;
+                }
+                if (ismagic)
+                {
+                    if (RNG(_MagicResist))
+                    {
+                        Console.WriteLine("attack nulified");
+                        return;
+                    }
+                    damage = (int)(damage * (1 - mr));
+                    this.damage(damage, instigator);
                     return;
-                }else if (RNG(_ward))
-                {
-                    Console.WriteLine("attack warded");
-                    damage = (int)(damage * (1 - pr)*(1-0.5));
-                    fightback(damage);
                 }
                 else
                 {
+                    if (RNG(_dodge))
+                    {
+                        Console.WriteLine("attack doged");
+                        return;
+                    }
+                    else if (RNG(_ward))
+                    {
+                        Console.WriteLine("attack warded");
+                        damage = (int)(damage * (1 - pr) * (1 - 0.5));
+                        fightback(damage);
+                    }
+                    else
+                    {
 
-                    damage = (int)(damage * (1 - pr));
-                    fightback(damage);
+                        damage = (int)(damage * (1 - pr));
+                        fightback(damage);
+                    }
+                    this.damage(damage, instigator);
+                    return;
                 }
-                this.damage(damage);
-                return;
             }
         }
 
@@ -138,8 +144,12 @@ namespace project_final.characters
                 }
             }
         }
-        public void damage(int damage) 
+        public void damage(int damage,Characters instigator) 
         {
+            if (instigator.GetType().Name == "Paladin")
+            {
+                instigator.heal(damage);
+            }
             _hp -= damage;
         }
         public void heal(int hp) 

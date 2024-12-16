@@ -1,6 +1,8 @@
-﻿using System;
+﻿using project_final.combat_system;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,16 +21,18 @@ namespace project_final.characters
             _ward = 25;
             _MagicResist = 25;
         }
-        public void CheepShot(Characters target)
+        public Attack CheepShot(Characters target)
         {
             if (target._hp<target._maxhp/2)
             {
-                target.defend(_ad,false);
+                Attack cheapshot = new Attack("cheap shot", _ad, false, false, target, this);
+                return cheapshot;
             }
             else
             {
                 int attackdamage = (int)(_ad * 1.5);
-                target.defend(attackdamage, false);
+                Attack cheapshot = new Attack("cheap shot", attackdamage, false, false, target, this);
+                return cheapshot;
             }
         }
         public void Evasion()
@@ -39,6 +43,7 @@ namespace project_final.characters
             }
             else
             {
+                Console.WriteLine("you are now faster");
                 _MagicResist = +20;
                 _dodge = +20;
                 if (_MagicResist > 50) { _MagicResist = 50; }

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using project_final.combat_system;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace project_final.characters
 {
@@ -20,9 +22,10 @@ namespace project_final.characters
             _ward = 5;
             _MagicResist = 25;
         }
-        public void FrostFlash(Characters target)
+        public Attack FrostFlash(Characters target)
         {
-            target.defend(_ap, true);
+            Attack frostflash = new Attack("frost flash",_ap,true,false,target,this);
+            return frostflash;
         }
         public void FrostBarier()
         {

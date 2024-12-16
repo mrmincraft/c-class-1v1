@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project_final.combat_system;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,13 +20,15 @@ namespace project_final.characters
             _ward = 10;
             _MagicResist = 20;
         }
-        public void CrosedStrike(Characters target)
+        public Attack CrosedStrike(Characters target)
         {
-            target.defend(_ad,false);
+            Attack crosedstrike = new Attack("crosed strike", _ad, false, false, target, this);
+            return crosedstrike;
         }
-        public void Jugement(Characters target)
+        public Attack Jugement(Characters target)
         {
-            target.defend(target._ap, false);
+            Attack jugement = new Attack("judgement",target._ap, false, false, target, this);
+            return jugement;
         }
         public void LightBolt()
         {
