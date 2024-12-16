@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace project_final.combat_system
 {
-    internal class combat
+    internal class Combat
     {
-        public combat() 
+        public Combat() 
         { 
 
         }

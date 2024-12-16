@@ -8,7 +8,6 @@ namespace project_final.characters
 {
     internal class Mage : Characters
     {
-        public int _bariercount {  get; set; }
         public Mage() : base()
         {
             _name = "defaltFiter";
