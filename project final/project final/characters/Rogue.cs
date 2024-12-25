@@ -13,10 +13,12 @@ namespace project_final.characters
         public Rogue() : base()
         {
             _name = "defaltRogue";
+            _armor = _Tarmor.Leather;
             _hp = 80;
             _maxhp = _hp;
             _ap = 0;
             _ad = 55;
+            _speed = 6;
             _dodge = 15;
             _ward = 25;
             _MagicResist = 25;

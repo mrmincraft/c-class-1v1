@@ -12,15 +12,17 @@ namespace project_final.characters
     {
         public Mage() : base()
         {
-            _name = "defaltFiter";
+            _name = "defaltMage";
+            _armor = _Tarmor.Cloth;
             _hp = 60;
             _maxhp = _hp;
             _ap = 75;
             _ad = 0;
-            _speed = 0;
+            _speed = 3;
             _dodge = 5;
             _ward = 5;
             _MagicResist = 25;
+            _bariercount = 0;
         }
         public Attack FrostFlash(Characters target)
         {

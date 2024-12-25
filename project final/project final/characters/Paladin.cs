@@ -12,13 +12,16 @@ namespace project_final.characters
         public Paladin() : base()
         {
             _name = "defaltPaladin";
+            _armor = _Tarmor.Plate;
             _hp = 95;
             _maxhp = _hp;
             _ap = 40;
             _ad = 40;
+            _speed = 2;
             _dodge = 5;
             _ward = 10;
             _MagicResist = 20;
+            _bariercount = 0;
         }
         public Attack CrosedStrike(Characters target)
         {

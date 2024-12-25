@@ -16,12 +16,13 @@ namespace project_final.characters
         }
         public Fighter() : base()
         {
-            _name = "defaltFiter";
-            _armor = _Tarmor.Plate;
+            _name = "defaltFighter";
+            _armor = _Tarmor.ChainMail;
             _hp = 100;
             _maxhp=_hp;
             _ap = 0;
             _ad = 50;
+            _speed = 4;
             _dodge = 5;
             _ward = 25;
             _MagicResist = 10;
